@@ -1,4 +1,4 @@
-![demo](https://github.com/flutterdevcodiste/flutter-todo-list/assets/102719828/80e213ef-c479-4980-8374-30d40d99c26f)# Todo List
+# Todo List
 
 Welcome to the Todo List App repository! This app is designed to help you manage your Todos efficiently with a beautiful and user-friendly interface.
 
@@ -14,10 +14,6 @@ Welcome to the Todo List App repository! This app is designed to help you manage
 
 - **Responsive Design:** The app adapts to screens of all sizes, providing an optimal user experience on any device.
   
-## Demo
-
-<img src="demo.png">
-
 ## Installation
 
 1. Clone this repository using `git clone https://github.com/flutterdevcodiste/flutter-todo-list.git`

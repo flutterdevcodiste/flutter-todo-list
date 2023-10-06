@@ -88,12 +88,12 @@ class DateTimeContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
+          const Icon(
             Icons.date_range,
             color: darkBlue,
             size: 16,
           ),
-          SizedBox(
+          const SizedBox(
             width: defaultPadding / 4,
           ),
           Text(text),

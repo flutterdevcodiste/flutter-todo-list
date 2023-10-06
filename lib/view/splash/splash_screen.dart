@@ -45,8 +45,8 @@ class _SplashViewState extends State<SplashView> {
                           ),
                         ),
                       ),
-                      SizedBox(height: defaultPadding/3,),
-                      Text('${(value*100).toInt().toString()}%',style: TextStyle(
+                      const SizedBox(height: defaultPadding/3,),
+                      Text('${(value*100).toInt().toString()}%',style: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold
                       ),)
@@ -89,39 +89,39 @@ class _SplashImageState extends State<SplashImage> with SingleTickerProviderStat
         child: Container(
           height: 110,
           width: 110,
-          padding: EdgeInsets.all(3),
+          padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(colors: [
+              gradient: const LinearGradient(colors: [
                 darkOrange,
                 Colors.pinkAccent,
                 Colors.amber,
               ]),
               boxShadow: [
                 BoxShadow(
-                    offset: Offset(0,2),
+                    offset: const Offset(0,2),
                     color: darkOrange.withOpacity(.5),
                     blurRadius: 10
                 ),
                 BoxShadow(
-                    offset: Offset(0,-2),
+                    offset: const Offset(0,-2),
                     color: Colors.pink.withOpacity(.5),
                     blurRadius: 10
                 ),
                 BoxShadow(
-                    offset: Offset(2,0),
+                    offset: const Offset(2,0),
                     color: lightOrange.withOpacity(.5),
                     blurRadius: 10
                 ),
                 BoxShadow(
-                    offset: Offset(-2,0),
+                    offset: const Offset(-2,0),
                     color: lightOrange.withOpacity(.5),
                     blurRadius: 10
                 )
               ]
           ),
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30)

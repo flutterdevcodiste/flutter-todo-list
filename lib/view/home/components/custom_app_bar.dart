@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         children: [
-          if (Responsive.isTablet(context)) Spacer(),
+          if (Responsive.isTablet(context)) const Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

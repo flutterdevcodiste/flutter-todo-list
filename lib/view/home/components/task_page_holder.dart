@@ -33,7 +33,7 @@ class TaskPageBody extends StatelessWidget {
                       ])),
               child:  TaskPageView(),
             )),
-        ChangeButtonRow(),
+        const ChangeButtonRow(),
       ],
     );
   }

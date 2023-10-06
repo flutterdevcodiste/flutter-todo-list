@@ -45,7 +45,7 @@ class LabelInput extends StatelessWidget {
            Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Periority',
                 style: TextStyle(
                     color: Colors.black,

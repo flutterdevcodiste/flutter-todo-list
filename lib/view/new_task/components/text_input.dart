@@ -34,14 +34,14 @@ class TextInputField extends StatelessWidget {
         },
         onTap: onTap,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           hintText: hint,
           fillColor: Colors.white,
           filled: true,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide.none),
-          hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
+          hintStyle: const TextStyle(color: Colors.grey, fontSize: 12),
         ),
       ),
     );

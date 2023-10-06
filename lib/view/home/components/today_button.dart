@@ -12,7 +12,7 @@ class TodayButton extends StatelessWidget {
     final controller=Get.put(HomeController());
     return InkWell(
       borderRadius: BorderRadius.circular(30),
-      onTap: () => controller.pageController.animateToPage(0, duration: Duration(milliseconds: 300), curve: Curves.easeIn),
+      onTap: () => controller.pageController.animateToPage(0, duration: const Duration(milliseconds: 300), curve: Curves.easeIn),
       child: Container(
         height: 50,
         width: 150,

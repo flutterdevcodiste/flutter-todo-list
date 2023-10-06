@@ -17,7 +17,7 @@ class ChangeIconButton extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: neviBlue.withOpacity(.3),
-                offset: Offset(0, 10),
+                offset: const Offset(0, 10),
                 blurRadius: 10
             )
           ]

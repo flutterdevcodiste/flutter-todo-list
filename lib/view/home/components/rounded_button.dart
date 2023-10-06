@@ -22,7 +22,7 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        foregroundColor: color,
+        backgroundColor: color,
         shape: const StadiumBorder().copyWith(side: side),
         disabledBackgroundColor: disableColor ?? Colors.grey,
         elevation: elevation,

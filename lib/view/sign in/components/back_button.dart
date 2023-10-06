@@ -18,7 +18,7 @@ class CustomBackButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               lightOrange,
               darkOrange

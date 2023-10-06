@@ -27,7 +27,15 @@ class HomeController extends GetxController {
   RxList model = [].obs;
   final ScrollController scrollController = ScrollController();
 
-  final DateTime alertTime = DateTime.now().add(const Duration(seconds: 20));
+  DateTime alertTime = DateTime.now();
+  Rx<DateTime> currentTime = DateTime.now().obs;
+
+  var timeRemaining = 60.obs; // Set the initial time in seconds
+
+  void startTimer() {
+    // Start the countdown timer
+    alertTime = DateTime.now().add(const Duration(minutes: 2));
+  }
 
   HomeController() {
     if (userData['NAME'] == null) {
@@ -88,12 +96,13 @@ class HomeController extends GetxController {
     }
   }
 
-  onTaskComplete(int value, int index, int ind, String key, BuildContext context) {
+  onTaskComplete(
+      int value, int index, int ind, String key, BuildContext context) {
     switch (value) {
       case 3:
         {
-          Utils.showWarningDialog(
-              context, 'Complete Task', 'This task will be marked as completed', 'Confirm', () {
+          Utils.showWarningDialog(context, 'Complete Task',
+              'This task will be marked as completed', 'Confirm', () {
             list[ind][index].status = 'complete';
             list[ind].add('');
             list[ind].remove('');
@@ -102,8 +111,8 @@ class HomeController extends GetxController {
         }
       case 2:
         {
-          Utils.showWarningDialog(
-              context, 'Delete Task', 'Are you want to sure to remove', 'Confirm', () {
+          Utils.showWarningDialog(context, 'Delete Task',
+              'Are you want to sure to remove', 'Confirm', () {
             list[ind].remove(list[ind][index]);
             db.delete(
               key,

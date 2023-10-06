@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../model/task_model.dart';
 import '../../../util/utils.dart';
 import '../../../view/home/home.dart';
 import '../../../view/splash/splash_screen.dart';
@@ -256,8 +255,8 @@ class FirebaseService {
             FontAwesomeIcons.triangleExclamation,
             color: Colors.red,
           ));
-      UserPref.setUser("Tejas", "flutterdev@codiste.com", "NOPASSWORD",
-          "flutter_dev", "");
+      UserPref.setUser(
+          "Tejas", "flutterdev@codiste.com", "NOPASSWORD", "flutter_dev", "");
       Get.to(HomePage());
     } catch (e) {
       debugPrint(Utils.extractFirebaseError(e.toString()));

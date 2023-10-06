@@ -52,7 +52,7 @@ class SignupBody extends StatelessWidget {
             Align(
                 alignment: Alignment.center,
                 child: GestureDetector(
-                  onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignIn(),)),
+                  onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignIn(),)),
                   child: RichText(
                       text: const TextSpan(children: [
                     TextSpan(
@@ -67,7 +67,7 @@ class SignupBody extends StatelessWidget {
                         ))
                   ])),
                 )),
-            SizedBox(height: defaultPadding,)
+            const SizedBox(height: defaultPadding,)
           ],
         ),
       ),

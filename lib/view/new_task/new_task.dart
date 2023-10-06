@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo/res/constants.dart';
 import 'package:todo/view/new_task/components/task_button.dart';
 import 'package:todo/view_model/controller/new_task_controller.dart';
 import 'package:todo/view_model/responsive.dart';
-import '../home/components/back_decoration.dart';
 import 'components/category_input.dart';
 import 'components/date_time.dart';
 import 'components/description_input.dart';
@@ -57,7 +55,8 @@ class NewTask extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                  onTap: () => controller.insertTask(context), child: CreateTaskButton())
+                  onTap: () => controller.insertTask(context),
+                  child: CreateTaskButton())
             ],
           )),
     );

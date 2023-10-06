@@ -1,63 +1,74 @@
+// import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:get/get.dart';
-import 'package:timer_builder/timer_builder.dart';
 import 'package:todo/view/home/components/rounded_button.dart';
 import 'package:todo/view/home/components/today_button.dart';
 import 'package:todo/view_model/controller/home_controller.dart';
 import '../../../res/constants.dart';
 import 'change_icon.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
-class ChangeButtonRow extends StatelessWidget {
-  ChangeButtonRow({super.key});
+class ChangeButtonRow extends StatefulWidget {
+  const ChangeButtonRow({super.key});
 
+  @override
+  State<ChangeButtonRow> createState() => _ChangeButtonRowState();
+}
+
+class _ChangeButtonRowState extends State<ChangeButtonRow> {
   final controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
+    var now = DateTime.now();
+    var reached = now.compareTo(controller.alertTime) >= 0;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.06),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.sizeOf(context).width * 0.06),
       child: Row(
         children: [
           const TodayButton(),
           const Spacer(),
-          TimerBuilder.scheduled([controller.alertTime], builder: (context) {
-            var now = DateTime.now();
-            var reached = now.compareTo(controller.alertTime) >= 0;
-            final textStyle = Theme.of(context).textTheme.bodyMedium;
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    reached ? Icons.alarm_on : Icons.alarm,
-                    color: reached ? Colors.red : Colors.green,
-                    size: 48,
+          reached
+              ? RoundedButton(
+                  color: darkestBlue,
+                  onTap: () {
+                    controller.alertTime =
+                        DateTime.now().add(const Duration(minutes: 1));
+                    setState(() {});
+                  },
+                  child: const Text(
+                    "Start CountDown!",
+                    style: TextStyle(color: Colors.white),
                   ),
-                  !reached
-                      ? TimerBuilder.periodic(const Duration(seconds: 1), alignment: Duration.zero,
-                          builder: (context) {
-                          // This function will be called every second until the alert time
-                          var now = DateTime.now();
-                          var remaining = controller.alertTime.difference(now);
-                          return Text(
-                            formatDuration(remaining),
-                            style: textStyle,
-                          );
-                        })
-                      : Text("Alert", style: textStyle),
-                  // RoundedButton(
-                  //   child: const Text("Reset"),
-                  //   onPressed: () {
-                  //     setState(() {
-                  //       alert = DateTime.now().add(Duration(seconds: 10));
-                  //     });
-                  //   },
-                  // ),
-                ],
-              ),
-            );
-          }),
+                )
+              : Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: lightBlue,
+                    borderRadius: BorderRadius.circular(24), // Set
+                  ),
+                  child: TimerCountdown(
+                    format: CountDownTimerFormat.minutesSeconds,
+                    endTime: controller.alertTime,
+                    enableDescriptions: false,
+                    spacerWidth: 10,
+                    timeTextStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.white),
+                    colonsTextStyle: const TextStyle(
+                        fontWeight: FontWeight.bold, color: lightOrange),
+                    onEnd: () {
+                      setState(() {});
+                      showToast("hello styled toast", context: context);
+                      showAlertDialog(context);
+                    },
+                  ),
+                ),
           const Spacer(),
           InkWell(
               onTap: () => controller.onMoveBack(),
@@ -83,13 +94,23 @@ class ChangeButtonRow extends StatelessWidget {
     );
   }
 
-  String formatDuration(Duration d) {
-    String f(int n) {
-      return n.toString().padLeft(2, '0');
-    }
-
-    // We want to round up the remaining time to the nearest second
-    d += const Duration(microseconds: 999999);
-    return "${f(d.inMinutes)}:${f(d.inSeconds % 60)}";
+  void showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Times Up!'),
+          content: const Text('Your Time has expired.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Okay'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the alert dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

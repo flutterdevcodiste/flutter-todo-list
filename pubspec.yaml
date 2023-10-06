@@ -40,6 +40,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.2.0
   sqflite: ^2.3.0
   sqflite_common_ffi_web: ^0.4.0
+  sqflite_common_ffi: ^2.3.0+2
   path_provider: ^2.1.0
   google_fonts: ^6.1.0
   email_validator: ^2.1.17
@@ -52,7 +53,9 @@ dependencies:
 #  sign_in_with_apple: ^5.0.0
   flutter_svg: ^2.0.7
   connectivity: ^3.0.6
-  timer_builder: ^2.0.0
+  flutter_timer_countdown: ^1.0.5
+  # awesome_dialog: ^3.1.0
+  flutter_styled_toast: ^2.2.1
 
 dev_dependencies:
   flutter_test:

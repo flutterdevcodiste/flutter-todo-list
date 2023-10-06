@@ -12,7 +12,7 @@ class BackColors extends StatelessWidget {
     var size=MediaQuery.sizeOf(context);
     return Container(
       color: Colors.white,
-      margin: EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30),
       child: Stack(
         children: [
           Positioned(
@@ -167,7 +167,7 @@ class BackColors extends StatelessWidget {
                 ),
               )),
           Positioned.fill(child: BackdropFilter(
-            filter:ImageFilter.blur(sigmaY: 30,sigmaX: 30),child: SizedBox(),
+            filter:ImageFilter.blur(sigmaY: 30,sigmaX: 30),child: const SizedBox(),
           )),
         ],
       ),

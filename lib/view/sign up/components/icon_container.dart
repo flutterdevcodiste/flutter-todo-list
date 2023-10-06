@@ -16,22 +16,22 @@ class IconContainer extends StatelessWidget {
           color: darkOrange
         ),
           borderRadius: BorderRadius.circular(30),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: lightOrange,
-                offset: const Offset(1,0)
+                offset: Offset(1,0)
             ),
             BoxShadow(
                 color: lightOrange,
-                offset: const Offset(0,1)
+                offset: Offset(0,1)
             ),
             BoxShadow(
                 color: lightOrange,
-                offset: const Offset(-1,0)
+                offset: Offset(-1,0)
             ),
             BoxShadow(
                 color: lightOrange,
-                offset: const Offset(0,-1)
+                offset: Offset(0,-1)
             ),
           ]
       ),

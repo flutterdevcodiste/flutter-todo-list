@@ -14,9 +14,9 @@ class DescriptionInput extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: defaultPadding/2,),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+          const SizedBox(height: defaultPadding/2,),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: Text('Description',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
           ),
           Obx(() => TextInputField(

@@ -14,20 +14,20 @@ class PeriorityContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       padding: EdgeInsets.all(selected ? 3 : 0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: selected ? Colors.orange : Colors.black12),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: selected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Text(
           text,
-          style: TextStyle(color: darkAccentBlue, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: darkAccentBlue, fontWeight: FontWeight.bold),
         ),
       ),
     );
